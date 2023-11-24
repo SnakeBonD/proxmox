@@ -93,6 +93,7 @@ if [ $(grep -c "void({ //Ext.Msg.show({" /usr/share/javascript/proxmox-widget-to
     systemctl restart pveproxy.service
 fi
 
+
 #4: Optimisation SWAP
 echo "- Paramatrage du SWAP pour qu'il ne s'active que lorsqu'il ne reste plus que 10% de RAM dispo"
 sysctl vm.swappiness=10
