@@ -19,6 +19,7 @@ echo "Debut du script"
 echo "----------------------------------------------------------------"
 
 #1 Suppression / Ajouts de dépôts
+
 # pve-enterprise.list
 echo "- Sauvegarde pve-enterprise.list"
 cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise-$timestamp.bak
@@ -32,10 +33,10 @@ if grep -Fxq "#deb https://enterprise.proxmox.com/debian/pve $distribution pve-e
     sed -i 's/^/#/' /etc/apt/sources.list.d/pve-enterprise.list
 fi
 
-
 # ceph.list
 echo "- Sauvegarde ceph.list"
 cp /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list-$timestamp.bak
+
 echo "- Vérification ceph.list"
 if grep -Fxq "#deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution enterprise" /etc/apt/sources.list.d/ceph.list
   then
