@@ -37,7 +37,7 @@ fi
 echo "- Sauvegarde ceph.list"
 cp /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list-$timestamp.bak
 echo "- Vérification ceph.list"
-if grep -Fxq "#deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
+if grep -Fxq "#deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution enterprise" /etc/apt/sources.list.d/ceph.list
   then
     echo "- Dépôt déja commenté"
   else
