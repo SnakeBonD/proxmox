@@ -39,6 +39,7 @@ if grep -Fxq "# deb https://enterprise.proxmox.com/debian/ceph-quincy $distribut
   else
     echo "- Masquage du dépôt en ajoutant # à la première ligne"
     sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.list
+fi
 
 # pve-no-subscription
 echo "- Sauvegarde sources.list"
