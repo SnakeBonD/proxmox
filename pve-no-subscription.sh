@@ -29,7 +29,7 @@ if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-
     echo "- Dépôt déja commenté"
   else
     echo "- Masquage du dépôt en ajoutant # à la première ligne"
-    sed -i 's/^/#/' /etc/apt/sources.list.d/pve-enterprise.list
+    sed -i 's/^/# /' /etc/apt/sources.list.d/pve-enterprise.list
 fi
 
 
@@ -42,7 +42,7 @@ if grep -Fxq "# deb https://enterprise.proxmox.com/debian/ceph-quincy $distribut
     echo "- Dépôt déja commenté"
   else
     echo "- Masquage du dépôt en ajoutant # à la première ligne"
-    sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.list
+    sed -i 's/^/# /' /etc/apt/sources.list.d/ceph.list
 fi
 
 # pve-no-subscription
