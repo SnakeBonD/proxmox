@@ -33,7 +33,7 @@ if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-
 fi
 
 echo "- Vérification ceph.list"
-if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
+if grep -Fxq "# deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
   then
     echo "- Dépôt déja commenté"
   else
