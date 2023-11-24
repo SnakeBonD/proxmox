@@ -66,8 +66,8 @@ echo "- Sauvegarde Subscription.pm"
 cp /usr/share/perl5/PVE/API2/Subscription.pm /usr/share/perl5/PVE/API2/Subscription-$timestamp.bak
 
 echo "- Verificiation du fichier Subscription.pm"
-if grep -q 'status => "notfound",' /usr/share/perl5/PVE/API2/Subscription.pm; then
-    # Remplacement de la ligne
+if grep -q 'status => "notfound",' /usr/share/perl5/PVE/API2/Subscription.pm
+  then
     sed -i 's/status => "notfound",/status => "active",/' /usr/share/perl5/PVE/API2/Subscription.pm
     echo "La ligne a été modifiée de 'status => \"notfound\"' à 'status => \"active\"'."
     systemctl restart pveproxy.service
