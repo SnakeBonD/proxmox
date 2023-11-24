@@ -32,6 +32,14 @@ if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-
     sed -i 's/^/#/' /etc/apt/sources.list.d/pve-enterprise.list
 fi
 
+echo "- Vérification ceph.list"
+if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
+  then
+    echo "- Dépôt déja commenté"
+  else
+    echo "- Masquage du dépôt en ajoutant # à la première ligne"
+    sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.list
+
 # pve-no-subscription
 echo "- Sauvegarde sources.list"
 cp /etc/apt/sources.list /etc/apt/sources-$timestamp.bak
@@ -45,13 +53,27 @@ if grep -Fxq "deb http://download.proxmox.com/debian/pve $distribution pve-no-su
     echo "deb http://download.proxmox.com/debian/pve $distribution pve-no-subscription" >> /etc/apt/sources.list
 fi
 
-#3: MAJ
+
+#2: MAJ
 echo "- MAJ OS"
 apt update -y
 apt full-upgrade -y
 
 
-#4: Supprimer le pop-up de souscription
+#3: Supprimer le pop-up de souscription
+echo "- Sauvegarde Subscription.pm"
+cp /usr/share/perl5/PVE/API2/Subscription.pm /usr/share/perl5/PVE/API2/Subscription-$timestamp.bak
+
+echo "- Verificiation du fichier Subscription.pm"
+if grep -q 'status => "notfound",' /usr/share/perl5/PVE/API2/Subscription.pm; then
+    # Remplacement de la ligne
+    sed -i 's/status => "notfound",/status => "active",/' /usr/share/perl5/PVE/API2/Subscription.pm
+    echo "La ligne a été modifiée de 'status => \"notfound\"' à 'status => \"active\"'."
+    systemctl restart pveproxy.service
+else
+    echo "La ligne 'status => \"notfound\"' n'a pas été trouvée dans le fichier."
+fi
+
 echo "- Sauvegarde proxmoxlib.js"
 cp /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib-$timestamp.bak
 
