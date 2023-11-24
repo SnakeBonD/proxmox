@@ -24,12 +24,12 @@ echo "- Sauvegarde pve-enterprise.list"
 cp /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise-$timestamp.bak
 
 echo "- Vérification pve-entreprise.list"
-if grep -Fxq "# deb https://enterprise.proxmox.com/debian/pve $distribution pve-enterprise" /etc/apt/sources.list.d/pve-enterprise.list
+if grep -Fxq "#deb https://enterprise.proxmox.com/debian/pve $distribution pve-enterprise" /etc/apt/sources.list.d/pve-enterprise.list
   then
     echo "- Dépôt déja commenté"
   else
     echo "- Masquage du dépôt en ajoutant # à la première ligne"
-    sed -i 's/^/# /' /etc/apt/sources.list.d/pve-enterprise.list
+    sed -i 's/^/#/' /etc/apt/sources.list.d/pve-enterprise.list
 fi
 
 
@@ -37,12 +37,12 @@ fi
 echo "- Sauvegarde ceph.list"
 cp /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list-$timestamp.bak
 echo "- Vérification ceph.list"
-if grep -Fxq "# deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
+if grep -Fxq "#deb https://enterprise.proxmox.com/debian/ceph-quincy $distribution pve-enterprise" /etc/apt/sources.list.d/ceph.list
   then
     echo "- Dépôt déja commenté"
   else
     echo "- Masquage du dépôt en ajoutant # à la première ligne"
-    sed -i 's/^/# /' /etc/apt/sources.list.d/ceph.list
+    sed -i 's/^/#/' /etc/apt/sources.list.d/ceph.list
 fi
 
 # pve-no-subscription
