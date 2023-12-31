@@ -28,7 +28,7 @@ Le plus simple est ensuite de copier cet ISO sur une clef USB o√π vous aurez pr√
 ### Lancer toutes ces actions par script (en root)
 
 ```bash
-wget -q -O - https://raw.githubusercontent.com/lucduke/proxmox/main/pve-no-subscription.sh | bash
+wget -q -O - https://raw.githubusercontent.com/SnakeBonD/proxmox/main/pve-no-subscription.sh | bash
 ```
 
 
