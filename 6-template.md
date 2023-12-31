@@ -22,6 +22,7 @@ Une fois connecté passer en root avec la commande:
 su -
 ```
 
+Avant de faire les mises a jour on va modifier le fichier source.list
 ```
 nano /etc/apt/source.list
 ```
