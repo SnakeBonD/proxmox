@@ -20,7 +20,10 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-12.4.0-amd64-D
 ```
 nano /etc/apt/source.list
 ```
-Commenter la ligne 
+Commenter la ligne:
+```
+#deb cdrom:[Debian GNU/Linux 12.4.0 _Bookworm_ - Official amd64 DVD Binary-1 with>
+```
 
 ## Ajout de programmes
 
