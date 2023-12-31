@@ -16,6 +16,11 @@ https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-12.4.0-amd64-D
 ```
 
 ## Modification de la source.list
+Se connecter en SSH avec le compte utilisateur (impossible de se connecter en root)
+Une fois connecté passer en root avec la commande:
+```
+su -
+```
 
 ```
 nano /etc/apt/source.list
