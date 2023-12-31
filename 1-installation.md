@@ -119,7 +119,7 @@ lvremove pve data
 
 # Créer le volume logique vms (827Go dans mon exemple) dans le volume group pve
 vgs # Pour visualiser l'espace disponible
-lvcreate -n vms -L 827G pve
+lvcreate -n vms -L 370G pve
 
 # Formater le nouveau volume en ext4
 mkfs.ext4 -m 1 /dev/pve/vms
