@@ -2,17 +2,17 @@
 
 
 
-Dans cet article, nous allons voir comment créer un template qui nous permettra de créer des clones de machines virtuelles. Dans cet exemple, les clones seront des machines virtuelles basées sur debian 11.
+Dans cet article, nous allons voir comment créer un template qui nous permettra de créer des clones de machines virtuelles. Dans cet exemple, les clones seront des machines virtuelles basées sur debian 12.
 
 
 ## Tutoriel vidéo
 [lien](https://youtu.be/7ToFpdpPVHE)
 
 
-## Téléchargement ISO Debian 11
+## Téléchargement ISO Debian 12
 
 ```
-https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-11.0.0-amd64-DVD-1.iso
+https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-12.4.0-amd64-DVD-1.iso
 ```
 
 
@@ -30,7 +30,7 @@ apt install -y htop qemu-guest-agent sudo cloud-init
 ```bash
 # En root
 # On ajoute le groupe sudo à mon utilisateur
-usermod -aG sudo christophe
+usermod -aG sudo snakebond
 
 # On redemarre
 reboot
