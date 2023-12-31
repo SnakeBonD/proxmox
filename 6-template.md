@@ -15,7 +15,12 @@ Dans cet article, nous allons voir comment créer un template qui nous permettra
 https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-12.4.0-amd64-DVD-1.iso
 ```
 
+## Modification de la source.list
 
+```
+nano /etc/apt/source.list
+```
+Commenter la ligne 
 
 ## Ajout de programmes
 
